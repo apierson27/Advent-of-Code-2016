@@ -15,7 +15,6 @@ R1, R2, L4, L4, L5, R3, L4'
 
 steps = steps.split(',').each do |x| x.strip! end # steps to array
 
-
 steps.each do |step|
 	step[0] == "L" ? facing -= 1 : facing += 1 # turn left or right accordingly
 	case facing % 4
