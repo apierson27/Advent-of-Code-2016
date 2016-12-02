@@ -16,17 +16,16 @@ R1, R2, L4, L4, L5, R3, L4'
 steps = steps.split(',').each do |x| x.strip! end # steps to array
 
 steps.each do |step|
-	direction, distance = step.split(//,2)
-	direction == "L" ? facing -= 1 : facing += 1 # turn left or right accordingly
+	step[0] == "L" ? facing -= 1 : facing += 1 # turn left or right accordingly
 	case facing % 4
 	when 0
-		start[1] += distance.to_i # move north
+		start[1] += step[1..-1].to_i # move north
 	when 1
-		start[0] += distance.to_i # move east
+		start[0] += step[1..-1].to_i # move east
 	when 2
-		start[1] -= distance.to_i # move south
+		start[1] -= step[1..-1].to_i # move south
 	when 3
-		start[0] -= distance.to_i # move west
+		start[0] -= step[1..-1].to_i # move west
 	else
 		puts "Unexpected value #{step[1..-1]} #{facing}"
 	end
