@@ -15,10 +15,10 @@ input.each do |step|
 	row = 0
 	column = 0
 	step.split('').each do |direction|
-		row += 1 if direction == 'D' unless row == 2
-		row -= 1 if direction == 'U' unless row == 0
-		column += 1 if direction == 'R' unless column == 2
-		column -= 1 if direction =='L' unless column == 0
+		row += 1 if direction == 'D' unless keypad[row+1] == nil
+		row -= 1 if direction == 'U' unless keypad[row-1] == nil or row == 0
+		column += 1 if direction == 'R' unless keypad[column+1] == nil
+		column -= 1 if direction =='L' unless keypad[column-1] == nil or column == 0
 	end
 	solution << keypad[row][column]
 end
