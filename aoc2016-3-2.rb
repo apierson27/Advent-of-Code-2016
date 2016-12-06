@@ -19,6 +19,7 @@ end
 
 columns = [column_0, column_1, column_2]
 
+# for each column, split its values into sub-arrays of 3 and append to input.
 columns.each do |x|
  	x.each_slice(3) do |y| input << y end
 end
