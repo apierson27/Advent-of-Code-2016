@@ -1,23 +1,14 @@
-column_0 = Array.new
-column_1 = Array.new
-column_2 = Array.new
+columns = [[],[],[]]
 input = Array.new
 valid = Array.new
 solution = Array.new
 
-count = 0
-
 File.open('aoc2016-3-1-input.txt') do |text|
 	text.each do |line|
-		count += 1
 		line = line.split(' ')
-		column_0 << line[0]
-		column_1 << line[1]
-		column_2 << line[2]
+		line.each_index do |i| columns[i] << line[i] end
 	end
 end
-
-columns = [column_0, column_1, column_2]
 
 # for each column, split its values into sub-arrays of 3 and append to input.
 columns.each do |x|
